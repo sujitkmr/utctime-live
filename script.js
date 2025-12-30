@@ -1,5 +1,13 @@
 let format = "24";
 
+// Cache DOM elements
+const utcClockEl = document.getElementById("utcClock");
+const timeTextEl = document.getElementById("timeText");
+const dateTextEl = document.getElementById("dateText");
+const btn24 = document.getElementById("btn24");
+const btn12 = document.getElementById("btn12");
+
+// Ordinal function
 function ordinal(n) {
     if (n > 3 && n < 21) return n + "th";
     return n % 10 === 1 ? n + "st" :
@@ -7,6 +15,7 @@ function ordinal(n) {
            n % 10 === 3 ? n + "rd" : n + "th";
 }
 
+// Update UTC time
 function updateTime() {
     const now = new Date();
 
@@ -22,37 +31,36 @@ function updateTime() {
         displayHours = hours % 12 || 12;
     }
 
-    displayHours = String(displayHours).padStart(2, "0");
+    displayHours = format === "24" ? String(displayHours).padStart(2, "0") : displayHours;
 
     const timeStr = `${displayHours}:${minutes}:${seconds}${ampm}`;
 
-    document.getElementById("utcClock").textContent = timeStr;
-    document.getElementById("timeText").textContent =
-        `UTC current time is ${timeStr}`;
+    utcClockEl.textContent = timeStr;
+    timeTextEl.textContent = `UTC current time is ${timeStr}`;
 
     const day = ordinal(now.getUTCDate());
     const weekday = now.toLocaleString("en-US", { weekday: "long", timeZone: "UTC" });
     const month = now.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
     const year = now.getUTCFullYear();
 
-    document.getElementById("dateText").textContent =
-        `UTC current date is ${day} ${weekday} ${month} ${year}.`;
+    dateTextEl.textContent = `UTC current date is ${day} ${weekday} ${month} ${year}.`;
 }
 
+// Set 12/24 hour format
 function setFormat(type) {
     format = type;
 
-    document.getElementById("btn24").classList.remove("active");
-    document.getElementById("btn12").classList.remove("active");
+    btn24.classList.remove("active");
+    btn12.classList.remove("active");
 
-    document.getElementById("btn24").setAttribute("aria-pressed", type === "24");
-    document.getElementById("btn12").setAttribute("aria-pressed", type === "12");
+    btn24.setAttribute("aria-pressed", type === "24" ? "true" : "false");
+    btn12.setAttribute("aria-pressed", type === "12" ? "true" : "false");
 
-    document.getElementById(type === "24" ? "btn24" : "btn12")
-        .classList.add("active");
+    (type === "24" ? btn24 : btn12).classList.add("active");
 
     updateTime();
 }
 
+// Initialize clock
 setInterval(updateTime, 1000);
 updateTime();

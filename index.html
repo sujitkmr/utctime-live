@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon as a text-based SVG -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='50' font-weight='bold' fill='%23020617'>UTC</text></svg>" type="image/svg+xml">
-
-
-
-
     <meta charset="UTF-8">
-
-    <title>Current UTC Time Now (Live) Coordinated Universal Time Clock</title>
-
-    <meta name="description" content="Current UTC Time Now. Live Coordinated Universal Time clock with 24-hour and 12-hour formats. Accurate, fast, and updated every second.">
+    <title>Current UTC Time Now | Live Coordinated Universal Time Clock</title>
+    <meta name="description" content="Live UTC Time now. Accurate Coordinated Universal Time clock updated every second. View current UTC time in 24-hour and 12-hour formats instantly.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://utctime.live/">
 
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://yourdomain.com/utc-time-now">
+    <!-- Favicon (Text-based SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='50' font-weight='bold' fill='%23020617'>UTC</text></svg>" type="image/svg+xml">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Current UTC Time Now – Live UTC Clock">
+    <meta property="og:description" content="Check the current UTC time live. Accurate Coordinated Universal Time clock updated every second.">
+    <meta property="og:url" content="https://utctime.live/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="UTC Time Live">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Current UTC Time Now – Live UTC Clock">
+    <meta name="twitter:description" content="Live and accurate Coordinated Universal Time clock updated every second.">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
 <header>
-    <div class="logo" onclick="window.location.reload();" style="cursor:pointer;">
-    UTC Time
-</div>
-
+    <div class="logo" onclick="window.location.reload();" style="cursor:pointer;">UTC Time</div>
     <nav aria-label="Primary navigation">
-    <a href="index.html" onclick="window.location.reload();">Home</a>
-</nav>
-
+        <a href="index.html" onclick="window.location.reload();">Home</a>
+    </nav>
 </header>
 
 <main>
@@ -43,12 +42,8 @@
         <div class="clock" id="utcClock" aria-live="polite">00:00:00</div>
 
         <div class="toggle">
-            <button id="btn24" class="active" aria-pressed="true" onclick="setFormat('24')">
-                24 Hour
-            </button>
-            <button id="btn12" aria-pressed="false" onclick="setFormat('12')">
-                12 Hour (AM/PM)
-            </button>
+            <button id="btn24" class="active" aria-pressed="true" onclick="setFormat('24')">24 Hour</button>
+            <button id="btn12" aria-pressed="false" onclick="setFormat('12')">12 Hour (AM/PM)</button>
         </div>
 
         <div class="info">
@@ -58,68 +53,56 @@
         </div>
     </div>
 
-<!-- SEO CONTENT -->
-<section class="seo-content" aria-labelledby="seo-heading">
-    <div class="seo-container">
-        <h2 id="seo-heading">About UTC Time</h2>
+    <!-- SEO Content -->
+    <section class="seo-content" aria-labelledby="seo-heading">
+        <div class="seo-container">
+            <h2 id="seo-heading">About UTC Time</h2>
 
-        <div class="seo-block">
-            <h3>What Is UTC Time?</h3>
-            <p>
-                UTC (Coordinated Universal Time) is the primary global time standard used to regulate
-                clocks and timekeeping worldwide. Unlike local time zones, UTC does not observe
-                daylight saving time and remains constant throughout the year.
-            </p>
+            <div class="seo-block">
+                <h3>What Is UTC Time?</h3>
+                <p>UTC (Coordinated Universal Time) is the primary global time standard used to regulate clocks and timekeeping worldwide.</p>
+            </div>
+
+            <div class="seo-block">
+                <h3>Why Is UTC Used Worldwide?</h3>
+                <p>UTC provides a single, consistent reference time that avoids confusion caused by time zone differences.</p>
+                <ul>
+                    <li>Standard reference for servers, APIs, and databases</li>
+                    <li>Used in aviation, navigation, space, and military operations</li>
+                    <li>Prevents daylight saving time errors</li>
+                    <li>Ensures accurate logging and scheduling</li>
+                </ul>
+            </div>
+
+            <div class="seo-block">
+                <h3>UTC vs Local Time</h3>
+                <p>Local time depends on geographic location and daylight saving rules, while UTC remains the same everywhere.</p>
+            </div>
+
+            <div class="seo-block">
+                <h3>How Accurate Is This UTC Clock?</h3>
+                <p>This live UTC clock updates every second using your browser’s system time.</p>
+            </div>
+
+            <div class="seo-block">
+                <h3>Who Uses UTC Time?</h3>
+                <p>UTC time is used by software systems, servers, developers, financial markets, aviation authorities, and international organizations to maintain consistent and accurate time across regions.</p>
+            </div>
         </div>
-
-        <div class="seo-block">
-            <h3>Why Is UTC Used Worldwide?</h3>
-            <p>
-                UTC provides a single, consistent reference time that avoids confusion caused by
-                time zone differences. It is essential for systems and people that operate across
-                multiple countries.
-            </p>
-
-            <ul>
-                <li>Standard reference for servers, APIs, and databases</li>
-                <li>Used in aviation, navigation, space, and military operations</li>
-                <li>Prevents daylight saving time errors</li>
-                <li>Ensures accurate logging and scheduling</li>
-            </ul>
-        </div>
-
-        <div class="seo-block">
-            <h3>UTC vs Local Time</h3>
-            <p>
-                Local time depends on geographic location and daylight saving rules, while UTC
-                remains the same everywhere. Many regions calculate their local time as an offset
-                from UTC (for example, UTC+5:30).
-            </p>
-        </div>
-
-        <div class="seo-block">
-            <h3>How Accurate Is This UTC Clock?</h3>
-            <p>
-                This live UTC clock updates every second using your browser’s system time.
-                It allows you to instantly check the current UTC time without refreshing the page.
-            </p>
-        </div>
-    </div>
-</section>
-
+    </section>
 </main>
 
 <footer>
     © 2025 UTC Time Utility • Accurate • Updated Every Second
 </footer>
 
-<!-- Structured Data -->
+<!-- Structured Data: WebApplication + FAQ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "UTC Time Now",
-  "url": "https://yourdomain.com/utc-time-now",
+  "url": "https://utctime.live/",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "All",
   "description": "Live UTC Time Now. View current Coordinated Universal Time with 12-hour and 24-hour formats.",
@@ -129,6 +112,31 @@
     "price": "0",
     "priceCurrency": "USD"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is UTC time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UTC (Coordinated Universal Time) is the primary global time standard used worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does UTC change with daylight saving time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. UTC does not observe daylight saving time and remains constant throughout the year."
+      }
+    }
+  ]
 }
 </script>
 
