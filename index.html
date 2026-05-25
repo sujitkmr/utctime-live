@@ -2,114 +2,294 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Current UTC Time Now | Live Coordinated Universal Time Clock</title>
-    <meta name="description" content="Live UTC Time now – accurate Coordinated Universal Time clock updated every second. See current UTC in 12-hour & 24-hour formats instantly.">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Current UTC & IST Time Now |
+        Live UTC and Indian Standard Time Clock
+    </title>
+
+    <meta
+        name="description"
+        content="Live UTC and IST Time now – accurate Coordinated Universal Time and Indian Standard Time clocks updated every second."
+    >
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://utctime.live/">
 
-    <!-- Favicon (Text-based SVG) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='50' font-weight='bold' fill='%23020617'>UTC</text></svg>" type="image/svg+xml">
+    <link
+        rel="canonical"
+        href="https://utctime.live/"
+    >
 
-    <!-- Open Graph / Social -->
-<meta property="og:title" content="Current UTC Time Now – Live UTC Clock">
-<meta property="og:description" content="Check the current UTC time live. Accurate Coordinated Universal Time updated every second in 12-hour and 24-hour formats.">
-<meta property="og:image" content="https://utctime.live/assets/og-image.png">
-<meta property="og:url" content="https://utctime.live/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="UTC Time Live">
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='50' font-weight='bold' fill='%23020617'>UTC</text></svg>"
+        type="image/svg+xml"
+    >
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Current UTC Time Now – Live UTC Clock">
-<meta name="twitter:description" content="Live and accurate Coordinated Universal Time clock updated every second. View UTC in 12-hour & 24-hour formats instantly.">
-<meta name="twitter:image" content="https://utctime.live/assets/og-image.png">
+    <!-- Open Graph -->
+    <meta
+        property="og:title"
+        content="Current UTC & IST Time Now – Live Clock"
+    >
 
+    <meta
+        property="og:description"
+        content="Check live UTC and IST time updated every second."
+    >
+
+    <meta
+        property="og:image"
+        content="https://utctime.live/assets/og-image.png"
+    >
+
+    <meta
+        property="og:url"
+        content="https://utctime.live/"
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:site_name"
+        content="UTC Time Live"
+    >
+
+    <!-- Twitter -->
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Current UTC & IST Time Now – Live Clock"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Live UTC and IST clocks updated every second."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://utctime.live/assets/og-image.png"
+    >
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <div class="logo" onclick="window.location.reload();" style="cursor:pointer;">UTC Time</div>
+    <div
+        class="logo"
+        onclick="window.location.reload();"
+        style="cursor:pointer;"
+    >
+        UTC Time
+    </div>
+
     <nav aria-label="Primary navigation">
-        <a href="index.html" onclick="window.location.reload();">Home</a>
+        <a href="index.html">Home</a>
     </nav>
 </header>
 
 <main>
-    <div class="card">
-        <h1 class="title">UTC Time Now</h1>
-        <p class="subtitle">Live Coordinated Universal Time (UTC)</p>
 
-        <div class="clock" id="utcClock" aria-live="polite">00:00:00</div>
+    <!-- TWO CLOCKS -->
+    <div class="clock-grid">
 
-        <div class="toggle">
-            <button id="btn24" class="active" aria-pressed="true" onclick="setFormat('24')">24 Hour</button>
-            <button id="btn12" aria-pressed="false" onclick="setFormat('12')">12 Hour (AM/PM)</button>
+        <!-- UTC CARD -->
+        <div class="card">
+
+            <h1 class="title">
+                UTC Time Now
+            </h1>
+
+            <p class="subtitle">
+                Live Coordinated Universal Time (UTC)
+            </p>
+
+            <div
+                class="clock"
+                id="utcClock"
+                aria-live="polite"
+            >
+                00:00:00
+            </div>
+
+            <div class="info">
+                <div id="utcTimeText"></div>
+                <div id="utcDateText"></div>
+
+                <div>
+                    <strong>UTC:</strong>
+                    Coordinated Universal Time
+                </div>
+            </div>
+
         </div>
 
-        <div class="info">
-            <div id="timeText"></div>
-            <div id="dateText"></div>
-            <div><strong>UTC:</strong> Coordinated Universal Time</div>
+        <!-- IST CARD -->
+        <div class="card">
+
+            <h1 class="title">
+                IST Time Now
+            </h1>
+
+            <p class="subtitle">
+                Live Indian Standard Time (IST)
+            </p>
+
+            <div
+                class="clock"
+                id="istClock"
+                aria-live="polite"
+            >
+                00:00:00
+            </div>
+
+            <div class="info">
+                <div id="istTimeText"></div>
+                <div id="istDateText"></div>
+
+                <div>
+                    <strong>IST:</strong>
+                    Indian Standard Time (UTC +5:30)
+                </div>
+            </div>
+
         </div>
+
     </div>
 
-    <!-- SEO Content -->
-    <section class="seo-content" aria-labelledby="seo-heading">
+    <!-- SHARED TOGGLE -->
+    <div class="toggle global-toggle">
+
+        <button
+            id="btn24"
+            class="active"
+            aria-pressed="true"
+            onclick="setFormat('24')"
+        >
+            24 Hour
+        </button>
+
+        <button
+            id="btn12"
+            aria-pressed="false"
+            onclick="setFormat('12')"
+        >
+            12 Hour (AM/PM)
+        </button>
+
+    </div>
+
+    <!-- SEO CONTENT -->
+    <section
+        class="seo-content"
+        aria-labelledby="seo-heading"
+    >
+
         <div class="seo-container">
-            <h2 id="seo-heading">About UTC Time</h2>
+
+            <h2 id="seo-heading">
+                About UTC and IST Time
+            </h2>
 
             <div class="seo-block">
                 <h3>What Is UTC Time?</h3>
-                <p>UTC (Coordinated Universal Time) is the primary global time standard used to regulate clocks and timekeeping worldwide.</p>
+
+                <p>
+                    UTC (Coordinated Universal Time)
+                    is the global time standard
+                    used worldwide.
+                </p>
+            </div>
+
+            <div class="seo-block">
+                <h3>What Is IST Time?</h3>
+
+                <p>
+                    IST (Indian Standard Time)
+                    is the official time zone
+                    used across India and
+                    is UTC +5 hours 30 minutes.
+                </p>
             </div>
 
             <div class="seo-block">
                 <h3>Why Is UTC Used Worldwide?</h3>
-                <p>UTC provides a single, consistent reference time that avoids confusion caused by time zone differences.</p>
+
+                <p>
+                    UTC provides a single,
+                    consistent reference time
+                    that avoids confusion
+                    caused by time zone differences.
+                </p>
+
                 <ul>
-                    <li>Standard reference for servers, APIs, and databases</li>
-                    <li>Used in aviation, navigation, space, and military operations</li>
-                    <li>Prevents daylight saving time errors</li>
-                    <li>Ensures accurate logging and scheduling</li>
+                    <li>
+                        Standard reference for servers,
+                        APIs, and databases
+                    </li>
+
+                    <li>
+                        Used in aviation,
+                        navigation, space,
+                        and military operations
+                    </li>
+
+                    <li>
+                        Prevents daylight saving time errors
+                    </li>
+
+                    <li>
+                        Ensures accurate logging and scheduling
+                    </li>
                 </ul>
             </div>
 
             <div class="seo-block">
-                <h3>UTC vs Local Time</h3>
-                <p>Local time depends on geographic location and daylight saving rules, while UTC remains the same everywhere.</p>
+                <h3>UTC vs IST</h3>
+
+                <p>
+                    UTC remains constant worldwide,
+                    while IST is India’s local time
+                    zone based on UTC +5:30.
+                </p>
             </div>
 
-            <div class="seo-block">
-                <h3>How Accurate Is This UTC Clock?</h3>
-                <p>This live UTC clock updates every second using your browser’s system time.</p>
-            </div>
-
-            <div class="seo-block">
-                <h3>Who Uses UTC Time?</h3>
-                <p>UTC time is used by software systems, servers, developers, financial markets, aviation authorities, and international organizations to maintain consistent and accurate time across regions.</p>
-            </div>
         </div>
+
     </section>
+
 </main>
 
 <footer>
     © 2025 UTC Time Utility • Accurate • Updated Every Second
 </footer>
 
-<!-- Structured Data: WebApplication + FAQ -->
+<!-- WebApplication Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "UTC Time Now",
+  "name": "UTC & IST Time Now",
   "url": "https://utctime.live/",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "All",
-  "description": "Live UTC Time Now. View current Coordinated Universal Time with 12-hour and 24-hour formats.",
+  "description": "Live UTC and IST Time Now.",
   "browserRequirements": "Requires JavaScript",
   "offers": {
     "@type": "Offer",
@@ -119,6 +299,7 @@
 }
 </script>
 
+<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,15 +310,15 @@
       "name": "What is UTC time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "UTC (Coordinated Universal Time) is the primary global time standard used worldwide."
+        "text": "UTC is the global time standard used worldwide."
       }
     },
     {
       "@type": "Question",
-      "name": "Does UTC change with daylight saving time?",
+      "name": "What is IST time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. UTC does not observe daylight saving time and remains constant throughout the year."
+        "text": "IST is Indian Standard Time and is UTC +5:30."
       }
     }
   ]
@@ -146,5 +327,6 @@
 
 <!-- JavaScript -->
 <script src="script.js" defer></script>
+
 </body>
 </html>
