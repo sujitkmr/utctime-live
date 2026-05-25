@@ -2,20 +2,33 @@ let format = "24";
 
 /* ---------- UTC ELEMENTS ---------- */
 
-const utcClockEl = document.getElementById("utcClock");
-const utcTimeTextEl = document.getElementById("utcTimeText");
-const utcDateTextEl = document.getElementById("utcDateText");
+const utcClockEl =
+    document.getElementById("utcClock");
+
+const utcTimeTextEl =
+    document.getElementById("utcTimeText");
+
+const utcDateTextEl =
+    document.getElementById("utcDateText");
 
 /* ---------- IST ELEMENTS ---------- */
 
-const istClockEl = document.getElementById("istClock");
-const istTimeTextEl = document.getElementById("istTimeText");
-const istDateTextEl = document.getElementById("istDateText");
+const istClockEl =
+    document.getElementById("istClock");
+
+const istTimeTextEl =
+    document.getElementById("istTimeText");
+
+const istDateTextEl =
+    document.getElementById("istDateText");
 
 /* ---------- TOGGLE BUTTONS ---------- */
 
-const btn24 = document.getElementById("btn24");
-const btn12 = document.getElementById("btn12");
+const btn24 =
+    document.getElementById("btn24");
+
+const btn12 =
+    document.getElementById("btn12");
 
 /* ---------- ORDINAL DATE ---------- */
 
@@ -43,11 +56,15 @@ function ordinal(n) {
 
 /* ---------- FORMAT CLOCK ---------- */
 
-function formatClock(hours, minutes, seconds) {
+function formatClock(
+    hours,
+    minutes,
+    seconds
+) {
 
     hours = Number(hours);
 
-    // ---------- 12 HOUR ----------
+    // 12 HOUR
     if (format === "12") {
 
         const ampm =
@@ -61,14 +78,42 @@ function formatClock(hours, minutes, seconds) {
         return `${displayHours}:${minutes}:${seconds}${ampm}`;
     }
 
-    // ---------- 24 HOUR ----------
-    const displayHours = String(hours)
-        .padStart(2, "0");
+    // 24 HOUR
+    const displayHours =
+        String(hours).padStart(2, "0");
 
     return `${displayHours}:${minutes}:${seconds}`;
 }
 
-/* ---------- UPDATE CLOCKS ---------- */
+/* ---------- WORLD CLOCK ---------- */
+
+function updateWorldClock(
+    id,
+    timezone
+) {
+
+    const now = new Date();
+
+    const formatter =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: timezone,
+
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+
+                hour12: format === "12"
+            }
+        );
+
+    document.getElementById(id)
+        .textContent =
+            formatter.format(now);
+}
+
+/* ---------- UPDATE TIME ---------- */
 
 function updateTime() {
 
@@ -81,28 +126,33 @@ function updateTime() {
     const utcHours =
         now.getUTCHours();
 
-    const utcMinutes = String(
-        now.getUTCMinutes()
-    ).padStart(2, "0");
+    const utcMinutes =
+        String(
+            now.getUTCMinutes()
+        ).padStart(2, "0");
 
-    const utcSeconds = String(
-        now.getUTCSeconds()
-    ).padStart(2, "0");
+    const utcSeconds =
+        String(
+            now.getUTCSeconds()
+        ).padStart(2, "0");
 
-    const utcTime = formatClock(
-        utcHours,
-        utcMinutes,
-        utcSeconds
-    );
+    const utcTime =
+        formatClock(
+            utcHours,
+            utcMinutes,
+            utcSeconds
+        );
 
-    utcClockEl.textContent = utcTime;
+    utcClockEl.textContent =
+        utcTime;
 
     utcTimeTextEl.textContent =
         `UTC current time is ${utcTime}`;
 
-    const utcDay = ordinal(
-        now.getUTCDate()
-    );
+    const utcDay =
+        ordinal(
+            now.getUTCDate()
+        );
 
     const utcWeekday =
         now.toLocaleString(
@@ -132,36 +182,42 @@ function updateTime() {
        IST TIME
     ========================= */
 
-    // UTC + 5:30
-    const istDate = new Date(
-        now.getTime() + (5.5 * 60 * 60 * 1000)
-    );
+    const istDate =
+        new Date(
+            now.getTime() +
+            (5.5 * 60 * 60 * 1000)
+        );
 
     const istHours =
         istDate.getUTCHours();
 
-    const istMinutes = String(
-        istDate.getUTCMinutes()
-    ).padStart(2, "0");
+    const istMinutes =
+        String(
+            istDate.getUTCMinutes()
+        ).padStart(2, "0");
 
-    const istSeconds = String(
-        istDate.getUTCSeconds()
-    ).padStart(2, "0");
+    const istSeconds =
+        String(
+            istDate.getUTCSeconds()
+        ).padStart(2, "0");
 
-    const istTime = formatClock(
-        istHours,
-        istMinutes,
-        istSeconds
-    );
+    const istTime =
+        formatClock(
+            istHours,
+            istMinutes,
+            istSeconds
+        );
 
-    istClockEl.textContent = istTime;
+    istClockEl.textContent =
+        istTime;
 
     istTimeTextEl.textContent =
         `IST current time is ${istTime}`;
 
-    const istDay = ordinal(
-        istDate.getUTCDate()
-    );
+    const istDay =
+        ordinal(
+            istDate.getUTCDate()
+        );
 
     const istWeekday =
         istDate.toLocaleString(
@@ -186,15 +242,50 @@ function updateTime() {
 
     istDateTextEl.textContent =
         `IST current date is ${istDay} ${istWeekday} ${istMonth} ${istYear}.`;
+
+    /* =========================
+       WORLD CLOCKS
+    ========================= */
+
+    updateWorldClock(
+        "tokyoClock",
+        "Asia/Tokyo"
+    );
+
+    updateWorldClock(
+        "beijingClock",
+        "Asia/Shanghai"
+    );
+
+    updateWorldClock(
+        "parisClock",
+        "Europe/Paris"
+    );
+
+    updateWorldClock(
+        "londonClock",
+        "Europe/London"
+    );
+
+    updateWorldClock(
+        "newyorkClock",
+        "America/New_York"
+    );
+
+    updateWorldClock(
+        "losangelesClock",
+        "America/Los_Angeles"
+    );
 }
 
-/* ---------- FORMAT TOGGLE ---------- */
+/* ---------- TOGGLE FORMAT ---------- */
 
 function setFormat(type) {
 
     format = type;
 
     btn24.classList.remove("active");
+
     btn12.classList.remove("active");
 
     btn24.setAttribute(

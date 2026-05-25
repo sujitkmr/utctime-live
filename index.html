@@ -1,96 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <title>
-        Current UTC & IST Time Now |
-        Live UTC and Indian Standard Time Clock
+        Current UTC Time Now | Live UTC & IST Clock
     </title>
 
     <meta
         name="description"
-        content="Live UTC and IST Time now – accurate Coordinated Universal Time and Indian Standard Time clocks updated every second."
-    >
+        content="Live UTC and IST time now. Accurate world clock with UTC, IST, Tokyo, London, Paris, New York and more.">
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta name="robots" content="index, follow">
+        content="width=device-width, initial-scale=1.0">
 
     <link
-        rel="canonical"
-        href="https://utctime.live/"
-    >
+        rel="stylesheet"
+        href="style.css">
 
-    <!-- Favicon -->
-    <link
-        rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='50' font-weight='bold' fill='%23020617'>UTC</text></svg>"
-        type="image/svg+xml"
-    >
-
-    <!-- Open Graph -->
-    <meta
-        property="og:title"
-        content="Current UTC & IST Time Now – Live Clock"
-    >
-
-    <meta
-        property="og:description"
-        content="Check live UTC and IST time updated every second."
-    >
-
-    <meta
-        property="og:image"
-        content="https://utctime.live/assets/og-image.png"
-    >
-
-    <meta
-        property="og:url"
-        content="https://utctime.live/"
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:site_name"
-        content="UTC Time Live"
-    >
-
-    <!-- Twitter -->
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
-
-    <meta
-        name="twitter:title"
-        content="Current UTC & IST Time Now – Live Clock"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Live UTC and IST clocks updated every second."
-    >
-
-    <meta
-        name="twitter:image"
-        content="https://utctime.live/assets/og-image.png"
-    >
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
+
     <div
         class="logo"
         onclick="window.location.reload();"
@@ -99,87 +35,125 @@
         UTC Time
     </div>
 
-    <nav aria-label="Primary navigation">
-        <a href="index.html">Home</a>
+    <nav>
+        <a href="index.html">
+            Home
+        </a>
     </nav>
+
 </header>
 
 <main>
 
-    <!-- TWO CLOCKS -->
+    <!-- =========================
+         MAIN CLOCKS
+    ========================= -->
+
     <div class="clock-grid">
 
-        <!-- UTC CARD -->
+        <!-- UTC -->
+
         <div class="card">
 
-            <h1 class="title">
-                UTC Time Now
-            </h1>
+            <div class="card-header">
 
-            <p class="subtitle">
-                Live Coordinated Universal Time (UTC)
-            </p>
+                <div class="card-icon utc-icon">
+                    🌍
+                </div>
+
+                <div>
+
+                    <h1 class="title">
+                        UTC Time Now
+                    </h1>
+
+                    <p class="subtitle">
+                        Coordinated Universal Time
+                    </p>
+
+                </div>
+
+            </div>
 
             <div
                 class="clock"
                 id="utcClock"
-                aria-live="polite"
             >
                 00:00:00
             </div>
 
             <div class="info">
+
                 <div id="utcTimeText"></div>
+
                 <div id="utcDateText"></div>
 
                 <div>
                     <strong>UTC:</strong>
-                    Coordinated Universal Time
+                    Global Standard Time
                 </div>
+
             </div>
 
         </div>
 
-        <!-- IST CARD -->
+        <!-- IST -->
+
         <div class="card">
 
-            <h1 class="title">
-                IST Time Now
-            </h1>
+            <div class="card-header">
 
-            <p class="subtitle">
-                Live Indian Standard Time (IST)
-            </p>
+                <div class="card-icon ist-icon">
+                    🇮🇳
+                </div>
+
+                <div>
+
+                    <h1 class="title">
+                        IST Time Now
+                    </h1>
+
+                    <p class="subtitle">
+                        Indian Standard Time
+                    </p>
+
+                </div>
+
+            </div>
 
             <div
                 class="clock"
                 id="istClock"
-                aria-live="polite"
             >
                 00:00:00
             </div>
 
             <div class="info">
+
                 <div id="istTimeText"></div>
+
                 <div id="istDateText"></div>
 
                 <div>
                     <strong>IST:</strong>
-                    Indian Standard Time (UTC +5:30)
+                    UTC +5:30
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
-    <!-- SHARED TOGGLE -->
-    <div class="toggle global-toggle">
+    <!-- =========================
+         TOGGLE
+    ========================= -->
+
+    <div class="toggle">
 
         <button
             id="btn24"
             class="active"
-            aria-pressed="true"
             onclick="setFormat('24')"
         >
             24 Hour
@@ -187,7 +161,6 @@
 
         <button
             id="btn12"
-            aria-pressed="false"
             onclick="setFormat('12')"
         >
             12 Hour (AM/PM)
@@ -195,79 +168,166 @@
 
     </div>
 
-    <!-- SEO CONTENT -->
-    <section
-        class="seo-content"
-        aria-labelledby="seo-heading"
-    >
+    <!-- =========================
+         WORLD CLOCKS
+    ========================= -->
+
+    <section class="world-clocks">
+
+        <h2 class="world-title">
+            Popular World Time Zones
+        </h2>
+
+        <div class="world-grid">
+
+            <div class="world-card">
+                <div class="world-top">
+                    <span class="world-flag">🇯🇵</span>
+
+                    <div>
+                        <h3>Tokyo</h3>
+                        <p>Japan</p>
+                    </div>
+                </div>
+
+                <div
+                    class="world-time"
+                    id="tokyoClock"
+                >
+                    00:00:00
+                </div>
+            </div>
+
+            <div class="world-card">
+                <div class="world-top">
+                    <span class="world-flag">🇨🇳</span>
+
+                    <div>
+                        <h3>Beijing</h3>
+                        <p>China</p>
+                    </div>
+                </div>
+
+                <div
+                    class="world-time"
+                    id="beijingClock"
+                >
+                    00:00:00
+                </div>
+            </div>
+
+            <div class="world-card">
+                <div class="world-top">
+                    <span class="world-flag">🇫🇷</span>
+
+                    <div>
+                        <h3>Paris</h3>
+                        <p>France</p>
+                    </div>
+                </div>
+
+                <div
+                    class="world-time"
+                    id="parisClock"
+                >
+                    00:00:00
+                </div>
+            </div>
+
+            <div class="world-card">
+                <div class="world-top">
+                    <span class="world-flag">🇬🇧</span>
+
+                    <div>
+                        <h3>London</h3>
+                        <p>United Kingdom</p>
+                    </div>
+                </div>
+
+                <div
+                    class="world-time"
+                    id="londonClock"
+                >
+                    00:00:00
+                </div>
+            </div>
+
+            <div class="world-card">
+                <div class="world-top">
+                    <span class="world-flag">🇺🇸</span>
+
+                    <div>
+                        <h3>New York</h3>
+                        <p>United States</p>
+                    </div>
+                </div>
+
+                <div
+                    class="world-time"
+                    id="newyorkClock"
+                >
+                    00:00:00
+                </div>
+            </div>
+
+            <div class="world-card">
+                <div class="world-top">
+                    <span class="world-flag">🇺🇸</span>
+
+                    <div>
+                        <h3>Los Angeles</h3>
+                        <p>United States</p>
+                    </div>
+                </div>
+
+                <div
+                    class="world-time"
+                    id="losangelesClock"
+                >
+                    00:00:00
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SEO -->
+
+    <section class="seo-content">
 
         <div class="seo-container">
 
-            <h2 id="seo-heading">
+            <h2>
                 About UTC and IST Time
             </h2>
 
             <div class="seo-block">
-                <h3>What Is UTC Time?</h3>
+
+                <h3>
+                    What is UTC?
+                </h3>
 
                 <p>
                     UTC (Coordinated Universal Time)
-                    is the global time standard
-                    used worldwide.
+                    is the global time standard used
+                    worldwide.
                 </p>
+
             </div>
 
             <div class="seo-block">
-                <h3>What Is IST Time?</h3>
+
+                <h3>
+                    What is IST?
+                </h3>
 
                 <p>
                     IST (Indian Standard Time)
-                    is the official time zone
-                    used across India and
-                    is UTC +5 hours 30 minutes.
-                </p>
-            </div>
-
-            <div class="seo-block">
-                <h3>Why Is UTC Used Worldwide?</h3>
-
-                <p>
-                    UTC provides a single,
-                    consistent reference time
-                    that avoids confusion
-                    caused by time zone differences.
+                    is UTC +5:30 and is used
+                    throughout India.
                 </p>
 
-                <ul>
-                    <li>
-                        Standard reference for servers,
-                        APIs, and databases
-                    </li>
-
-                    <li>
-                        Used in aviation,
-                        navigation, space,
-                        and military operations
-                    </li>
-
-                    <li>
-                        Prevents daylight saving time errors
-                    </li>
-
-                    <li>
-                        Ensures accurate logging and scheduling
-                    </li>
-                </ul>
-            </div>
-
-            <div class="seo-block">
-                <h3>UTC vs IST</h3>
-
-                <p>
-                    UTC remains constant worldwide,
-                    while IST is India’s local time
-                    zone based on UTC +5:30.
-                </p>
             </div>
 
         </div>
@@ -277,56 +337,13 @@
 </main>
 
 <footer>
-    © 2025 UTC Time Utility • Accurate • Updated Every Second
+    © 2026 UTC Time Live
 </footer>
 
-<!-- WebApplication Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "UTC & IST Time Now",
-  "url": "https://utctime.live/",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "All",
-  "description": "Live UTC and IST Time Now.",
-  "browserRequirements": "Requires JavaScript",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
-
-<!-- FAQ Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is UTC time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "UTC is the global time standard used worldwide."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is IST time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "IST is Indian Standard Time and is UTC +5:30."
-      }
-    }
-  ]
-}
-</script>
-
-<!-- JavaScript -->
-<script src="script.js" defer></script>
+<script
+    src="script.js"
+    defer
+></script>
 
 </body>
 </html>
